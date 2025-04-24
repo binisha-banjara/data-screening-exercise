@@ -67,5 +67,40 @@ write_csv(df, "cleaned_ice_detention.csv")
 print(head(df, 10))
 
 
+#### PART B
+
+# Checking the data types of Level A to D
+str(df[, c("Level_A", "Level_B", "Level_C", "Level_D")])
+
+# Creating Total poplulation Column
+df$Total_Population <- rowSums(df[, c("Level_A", "Level_B", "Level_C", "Level_D")], na.rm = TRUE)
+
+df$Total_Population
+
+str(df$Total_Population)
+
+# Sort by Total_Population in descending order
+top10 <- df[order(-df$Total_Population), ][1:10, ]
+
+
+# View result
+top10[, c("Name", "Total_Population")]
+
+
+##Part C
+
+library(ggplot2)
+
+ggplot(top10, aes(x = reorder(Name, Total_Population), y = Total_Population, fill = Total_Population)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  scale_fill_gradient(low = "lightblue", high = "steelblue") +
+  labs(title = "Top 10 Largest ICE Detention Facilities",
+       x = "Detention Facility",
+       y = "Total Population") +
+  theme_minimal()
+
+ggsave("top10_facilities.png", width = 10, height = 6)
+
 
 
