@@ -54,7 +54,9 @@ df$State[72] <- "TX"
 
 ## All the missing values are filled using information from Google
 
-# Convert only numeric-like values to dates; keep others as NA
+# Convert only numeric-like values to dates, keep others as NA
+# Used this as a reference to resolve the date issue:
+# https://stackoverflow.com/questions/43230470/how-to-convert-excel-date-format-to-proper-date-in-r/43230524#43230524
 df$Last_Inspection_End_Date <- suppressWarnings(
   as.Date(as.numeric(df$Last_Inspection_End_Date), origin = "1899-12-30")
 )
