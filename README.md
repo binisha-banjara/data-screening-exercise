@@ -4,13 +4,14 @@ This repository contains my solution to a data screening exercise using R. The g
 the U.S.
 
 ## Project Structure
+```
 data-screening-exercise/
 ├── messy_ice_detention.csv        # Original version of the dataset
 ├── cleaning_visualization.R       # R script for cleaning, analyzing and visualizing
 ├── cleaned_ice_detention.csv      # Cleaned version of the messy dataset
 ├── top10_facilities.png           # Visualization of the top 10 largest detention facilities
 └── README.md                      # Documentation and usage instructions
-
+```
 ## Objective
 
 - **Clean** the messy dataset (`messy_ice_detention.csv`) by removing headers, strange characters, and fixing malformed/missing values.
@@ -51,7 +52,7 @@ install.packages("ggplot2")
 
 ## Output Files
 
-cleaned_ice_detention.csv->	Cleaned and processed dataset
+cleaned_ice_detention.csv->	Cleaned and processed dataset<br>
 top10_facilities.png->	Bar chart showing the top 10 detention facilities
 
 ## Interpretation
